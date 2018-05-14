@@ -6,73 +6,59 @@ using System.Threading.Tasks;
 
 namespace calc
 {
+    class Calculator
+    {
+        public double FirstNum;
+        public double SecondNum;
+        public char Operator;
+
+        public Calculator(double fn, char op, double sn)
+        {
+            FirstNum = fn;
+            Operator = op;
+            SecondNum = sn;            
+        }
+               
+        public void Count()
+        {
+          
+                double count;
+                if (Operator == '+')
+                {
+                    count = FirstNum + SecondNum;
+                    Console.WriteLine("Сумма = " + count);
+                }
+                else if (Operator == '-')
+                {
+                    count = FirstNum - SecondNum;
+                    Console.WriteLine("Разность = " + count);
+                }
+                else if (Operator == '*')
+                {
+                    count = FirstNum * SecondNum;
+                    Console.WriteLine("Произведение = " + count);
+                }
+                else if (Operator == '/')
+                {
+                    count = FirstNum / SecondNum;
+                    Console.WriteLine("Частное = " + count);
+                }
+        }
+    }
+   
     class Program
     {
-        static void plus()
-        {
-            Console.WriteLine("Введите первое число");
-           int a = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int b = Int32.Parse(Console.ReadLine());
-            Console.WriteLine( a + b);
-        }
-        static void minus()
-        {
-            Console.WriteLine("Введите первое число");
-            int a = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int b = Int32.Parse(Console.ReadLine());
-            Console.WriteLine(a - b);
-        }
-        static void del()
-        {
-            Console.WriteLine("Введите первое число");
-            int a = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int b = Int32.Parse(Console.ReadLine());
-            Console.WriteLine(a / b);
-        }
-        static void multiply()
-        {
-            Console.WriteLine("Введите первое число");
-            int a = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Введите второе число");
-            int b = Int32.Parse(Console.ReadLine());
-            Console.WriteLine(a * b);
-        }
-
-
         static void Main(string[] args)
         {
-            Console.WriteLine("Выберите действие: 1 сложение, 2 вычитание, 3 умножение, 4 деление");
-            int res = Int32.Parse(Console.ReadLine());
-            switch (res)
-            {
-                case 1:
-                    {
-                        plus();
-                        
-                    }
-                    break;
-
-                case 2:
-                    {
-                        minus();
-                        break;
-                    }
-                case 3:
-                    {
-                        multiply();
-                        break;
-                    }
-                case 4:
-                    {
-                        minus();
-                        break;
-                    }
-
-            }
-
+                Console.WriteLine("Введите первое число: ");
+                double a = Double.Parse(Console.ReadLine());
+                Console.WriteLine("Введите оператор: ");
+                char b = Char.Parse(Console.ReadLine());
+                Console.WriteLine("Введите второе число");
+                double c = Double.Parse(Console.ReadLine());
+                Calculator calculator = new Calculator(a, b, c);
+                calculator.Count();
+            
             Console.ReadKey();
         }
     }
